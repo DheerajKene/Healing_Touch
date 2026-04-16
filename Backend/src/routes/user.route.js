@@ -44,4 +44,28 @@ userRouter.post('/register', async (req, res)=>{
             message:`Error while registering the user:${error.message}`
         });
     }
+});
+
+
+//login the user
+
+userRouter.post('/login', async (req, res)=>{
+    const {role, email, password} = req.body;
+    if(!role || !email || !password){
+        console.log("Fill correct login creadiantails")
+        res.status(400).json({
+            message:`please enter correct login creadiantials`
+        });
+    }
+
+    try {
+        const user = UserModel.findOne({email, password});
+        if(!user){
+            res.status(401).json({
+                message:`Invalid creadiantials`
+            })
+        }
+    } catch (error) {
+        
+    }
 })
