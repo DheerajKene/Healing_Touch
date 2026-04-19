@@ -26,3 +26,5 @@ ServiceRouter.get('/got-served', async (req, res)=>{
     }
     
 });
+
+module.exports = ServiceRouter;

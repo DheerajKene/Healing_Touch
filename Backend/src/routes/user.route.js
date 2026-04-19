@@ -108,4 +108,6 @@ userRouter.get('/profile', async (req, res)=>{
         });
     }
 
-})
+});
+
+module.exports = userRouter;
