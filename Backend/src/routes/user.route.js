@@ -84,4 +84,28 @@ userRouter.post('/login', async (req, res)=>{
             message:`error in fetching profile:${error.message}`
         });
     }
+});
+
+//for profile to show user name on top
+
+userRouter.get('/profile', async (req, res)=>{
+    
+    try {
+        const user = await UserModel.findById(req.userId);
+
+        if(!user){
+            res.status(500).json(
+            {message:`user not found`}
+        );
+        }
+        res.status(200).json({
+            Name:user.name,
+            email:user.email
+        })
+    } catch (error) {
+        res.status(500).json({
+            message:`error found while fetching user:${error.message}`
+        });
+    }
+
 })
