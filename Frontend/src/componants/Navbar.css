@@ -2,13 +2,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #007bff; /* Primary blue */
+  background-color: #04376d;
   color: white;
   padding: 1rem 2rem;
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   z-index: 1000;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -77,8 +80,27 @@
   color: #28a745; /* Secondary green */
 }
 
+.navbar-phone a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background-color: #04376d; /* Green background for call-to-action */
+  transition: background-color 0.3s;
+}
+
+.navbar-phone a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Darker green on hover */
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
   .navbar-links {
     position: static;
     transform: none;
@@ -87,6 +109,7 @@
     background-color: #007bff;
     width: 100%;
     padding: 1rem 0;
+    margin: 1rem 0;
   }
 
   .dropdown-menu {
@@ -94,5 +117,9 @@
     box-shadow: none;
     border: none;
     background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-phone {
+    margin-top: 1rem;
   }
 }
