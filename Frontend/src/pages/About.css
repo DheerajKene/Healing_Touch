@@ -1,0 +1,164 @@
+.about {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.about-content {
+  margin-top: 80px; /* To account for fixed navbar */
+  padding: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-section {
+  text-align: center;
+  background-color: white;
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.hero-section h1 {
+  color: #007bff;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.mission-section,
+.services-section,
+.team-section,
+.contact-section {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.mission-section h2,
+.services-section h2,
+.team-section h2,
+.contact-section h2 {
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.mission-section p {
+  text-align: center;
+  color: #333;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-card {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.service-card h3 {
+  color: #28a745;
+  margin-bottom: 0.5rem;
+}
+
+.service-card p {
+  color: #666;
+  line-height: 1.5;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.team-member {
+  text-align: center;
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid #007bff;
+}
+
+.team-member h4 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.team-member p {
+  color: #666;
+  font-style: italic;
+}
+
+.contact-section p {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info {
+  text-align: center;
+}
+
+.contact-info p {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.contact-info strong {
+  color: #007bff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .about-content {
+    padding: 1rem;
+  }
+
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
