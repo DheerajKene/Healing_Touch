@@ -2,8 +2,8 @@ import{createContext, useState} from 'react'
 
 export const Authcontext = createContext();
 
-export const AuthcontextProvider = ()=>{
-    const [AuthDeatils, setAuthdetails] = useState({
+export const AuthcontextProvider = ({children})=>{
+    const {AuthDeatils, setAuthdetails} = useState({
         isAuthenticated:false,
         email:null,
         token:null
@@ -26,5 +26,5 @@ export const AuthcontextProvider = ()=>{
       
     }
 
-    return <Authcontext.Provider value={{AuthDeatils, login, logout}}>{childern}</Authcontext.Provider>
+    return <Authcontext.Provider value={{AuthDeatils, login, logout}}>{children}</Authcontext.Provider>
 }
