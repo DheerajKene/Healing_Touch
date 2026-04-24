@@ -50,6 +50,12 @@
   overflow-x: auto;
   padding-bottom: 1rem;
   -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.doctors-slider::-webkit-scrollbar {
+  display: none;
 }
 
 .doctors-track {
@@ -60,8 +66,8 @@
 }
 
 .doctor-card {
-  min-width: 280px;
-  flex: 0 0 auto;
+  max-width: 100%;
+  flex: 0 0 30%;
   scroll-snap-align: start;
 }
 
