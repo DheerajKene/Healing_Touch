@@ -1,7 +1,9 @@
 import React from 'react';
 import Navbar from '../componants/Navbar';
 import Footer from '../componants/Footer';
-import './Home.css'; // We'll create this
+import './Home.css';
+import StepInfo from '../componants/StepInfo';
+import doc from '../photos/doc.avif';
 
 const Home = () => {
   return (
@@ -29,7 +31,47 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <section className="request-callback-section">
+          <div className="request-left">
+            <div className="request-logo">
+              <h2>Healing Touch</h2>
+              <p>Where Care Meets Compassion</p>
+            </div>
+            <div className="request-image">
+              <img
+                src={doc}
+                alt="Indian doctors smiling with folded hands"
+              />
+            </div>
+          </div>
+          <div className="request-right">
+            <h2>Request a Callback</h2>
+            <form className="callback-form">
+              <label htmlFor="callback-name">Name</label>
+              <input id="callback-name" type="text" placeholder="Your full name" />
+
+              <label htmlFor="callback-phone">Phone</label>
+              <input id="callback-phone" type="tel" placeholder="Your phone number" />
+
+              <label htmlFor="callback-city">Select your city</label>
+              <select id="callback-city">
+                <option value="">Choose your city</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="delhi">Delhi</option>
+                <option value="bangalore">Bangalore</option>
+                <option value="chennai">Chennai</option>
+                <option value="kolkata">Kolkata</option>
+              </select>
+
+              <label htmlFor="callback-requirements">Requirements</label>
+              <textarea id="callback-requirements" rows="4" placeholder="Tell us your care needs"></textarea>
+
+              <button type="submit">Request a Callback</button>
+            </form>
+          </div>
+        </section>
       </div>
+      <StepInfo />
       <Footer />
     </div>
   );

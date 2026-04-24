@@ -17,7 +17,7 @@
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px #04376d;
 }
 
 .tagline {
@@ -37,13 +37,13 @@
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px #cfcece;
 }
 
 .doctors-section h2 {
   text-align: center;
   margin-bottom: 2rem;
-  color: #007bff; /* Primary blue */
+  color: #04376d;
 }
 
 .doctors-grid {
@@ -52,12 +52,129 @@
   gap: 2rem;
 }
 
+.request-callback-section {
+  width: 100%;
+  max-width: 1200px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(4, 55, 109, 0.12);
+}
+
+.request-left,
+.request-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.request-logo h2 {
+  text-align: center;
+  margin-top: -3rem;
+  font-size: 2.3rem;
+  color: #04376d;
+  font-family: Candara;
+}
+
+.request-logo p {
+  text-align: center;
+  font-size: 1.1rem;
+  font-family: Candara;
+  color: #555;
+  margin-top: -1.5rem;
+}
+
+.request-image img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.request-right h2 {
+  margin: 0 0 1.5rem;
+  color: #04376d;
+  font-size: 2rem;
+}
+
+.callback-form {
+  display: grid;
+  gap: 1rem;
+  width: 450px;
+}
+
+.callback-form label {
+  color: #333;
+  font-weight: 600;
+  font-family: Candara;
+  
+}
+
+.callback-form input,
+.callback-form select,
+.callback-form textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid #d5dbe6;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  background: #f8f9fa;
+}
+
+.callback-form textarea {
+  resize: vertical;
+}
+
+.callback-form button {
+  background-color: #04376d;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.95rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.callback-form button:hover {
+  background-color: #062f57;
+}
+
+@media (max-width: 920px) {
+  .request-callback-section {
+    grid-template-columns: 1fr;
+  }
+
+  .request-image img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+  .request-callback-section {
+    padding: 1.5rem;
+  }
+
+  .request-logo h2,
+  .request-right h2 {
+    font-size: 1.75rem;
+  }
+}
+
 .doctor-card {
   background-color: #f8f9fa;
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px #04376d;
   transition: transform 0.3s;
 }
 
@@ -76,5 +193,5 @@
 .doctor-card p {
   margin: 0;
   font-weight: bold;
-  color: #333;
+  color: #04376d;
 }
