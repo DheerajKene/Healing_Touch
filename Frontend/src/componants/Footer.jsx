@@ -15,7 +15,6 @@ const Footer = () => {
             <p><strong>Address:</strong> 123 Care Street, Wellness City, WC 12345</p>
           </div>
         </div>
-
       </div>
       <div className="footer-bottom">
         <p>&copy; 2024 Healing Touch. All rights reserved.</p>

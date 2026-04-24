@@ -46,10 +46,23 @@
   color: #04376d;
 }
 
-.doctors-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+.doctors-slider {
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.doctors-track {
+  display: flex;
+  gap: 1.5rem;
+  padding-bottom: 0.5rem;
+  scroll-snap-type: x mandatory;
+}
+
+.doctor-card {
+  min-width: 280px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
 }
 
 .request-callback-section {

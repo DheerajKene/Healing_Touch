@@ -4,8 +4,19 @@ import Footer from '../componants/Footer';
 import './Home.css';
 import StepInfo from '../componants/StepInfo';
 import doc from '../photos/doc.avif';
+import FAQ from '../componants/FAQ';
 
 const Home = () => {
+  const DoctorsList = [
+    { name: "Dr. Emily Johnson", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" },
+    { name: "Dr. Michael Chen", image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" },
+    { name: "Dr. Emily Johnson", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" },
+    { name: "Dr. Michael Chen", image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" },
+    { name: "Dr. Emily Johnson", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" },
+    { name: "Dr. Michael Chen", image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" },
+    { name: "Dr. Emily Johnson", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" },
+    { name: "Dr. Michael Chen", image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" }
+  ]
   return (
     <div className="home">
       <Navbar />
@@ -16,18 +27,14 @@ const Home = () => {
         </div>
         <div className="doctors-section">
           <h2>Our Dedicated Doctors</h2>
-          <div className="doctors-grid">
-            <div className="doctor-card">
-              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Doctor 1" />
-              <p>Dr. Emily Johnson</p>
-            </div>
-            <div className="doctor-card">
-              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Doctor 2" />
-              <p>Dr. Michael Chen</p>
-            </div>
-            <div className="doctor-card">
-              <img src="https://images.unsplash.com/photo-1594824804732-ca8db723f8fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Doctor 3" />
-              <p>Dr. Sarah Patel</p>
+          <div className="doctors-slider">
+            <div className="doctors-track">
+              {DoctorsList.map((doc, index) => (
+                <div className="doctor-card" key={index}>
+                  <img src={doc.image} alt={doc.name} />
+                  <p>{doc.name}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -70,7 +77,9 @@ const Home = () => {
           </div>
         </section>
       </div>
+      
       <StepInfo />
+      <FAQ/>
       <Footer />
     </div>
   );
