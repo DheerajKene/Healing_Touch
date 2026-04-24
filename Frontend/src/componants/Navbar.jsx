@@ -29,7 +29,7 @@ const Navbar = () => {
           )}
         </li>
         <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/#request-callback">Book now</a></li>
       </ul>
       <div className="navbar-phone">
         <a href="tel:7507562079">Call Us - 7507562079</a>

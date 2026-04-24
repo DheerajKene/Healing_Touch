@@ -31,7 +31,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <section className="request-callback-section">
+        <section className="request-callback-section" id="request-callback">
           <div className="request-left">
             <div className="request-logo">
               <h2>Healing Touch</h2>
@@ -40,7 +40,6 @@ const Home = () => {
             <div className="request-image">
               <img
                 src={doc}
-                alt="Indian doctors smiling with folded hands"
               />
             </div>
           </div>
