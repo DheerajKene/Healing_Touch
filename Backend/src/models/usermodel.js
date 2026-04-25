@@ -8,7 +8,7 @@ const userSchema = mongoose.Schema({
         type:String,
         required:true
     },
-    email:{
+    mobile_no:{
         type:String,
         required:true
     },

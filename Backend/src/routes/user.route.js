@@ -8,13 +8,13 @@ const saltrounds = 5;
 
 //registering the user
 userRouter.post('/register', async (req, res)=>{
-    const{name, DOB, email, password, role } = req.body;
-    if(!name || !DOB || !email || !password || !role){
+    const{name, DOB, mobile_no, password, role } = req.body;
+    if(!name || !DOB || !mobile_no || !password || !role){
         res.send(`Please enter correct creadiantials...`);
     }
     try {
         //checking if user already exist or not
-        const exstingUser = await UserModel.findOne({name, email});
+        const exstingUser = await UserModel.findOne({name, mobile_no});
         if(exstingUser){
             res.status(401).json({
                 message:`User already registered...`
@@ -28,7 +28,7 @@ userRouter.post('/register', async (req, res)=>{
         const user = new UserModel({
             name,
             DOB,
-            email,
+            mobile_no,
             password,
             role
         });
@@ -51,15 +51,15 @@ userRouter.post('/register', async (req, res)=>{
 //login the user
 
 userRouter.post('/login', async (req, res)=>{
-    const {role, email, password} = req.body;
-    if(!role || !email || !password){
+    const {role, name, password} = req.body;
+    if(!role || !name || !password){
         res.status(400).json({
             message:`please enter correct login creadiantials`
         });
     }
 
     try {
-        const user = UserModel.findOne({email, password});
+        const user = UserModel.findOne({name, password});
         if(!user){
             res.status(401).json({
                 message:`Invalid creadiantials`
@@ -100,7 +100,7 @@ userRouter.get('/profile', async (req, res)=>{
         }
         res.status(200).json({
             Name:user.name,
-            email:user.email
+            mobile_no:user.mobile_no
         })
     } catch (error) {
         res.status(500).json({
