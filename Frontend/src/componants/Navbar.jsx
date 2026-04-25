@@ -29,6 +29,7 @@ const Navbar = () => {
           )}
         </li>
         <li><a href="/about">About</a></li>
+        <li><a href="/login">Login</a></li>
         <li><a href="/#request-callback">Book now</a></li>
       </ul>
       <div className="navbar-phone">
