@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
+import {useNavigate} from 'react-router-dom'
 import './Register.css';
 
 const Register = () => {
   const [formValues, setFormValues] = useState({ role: '', name: '', dob: '', mobile: '', password: '' });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormValues((prev) => ({ ...prev, [name]: value }));
+    setFormValues((prev) => ({ ...prev, [name]: value }));//prev states here that, whatever the previous values of formvalues will spread here using spread operator.
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formValues.role || !formValues.name || !formValues.dob || !formValues.mobile || !formValues.password) {
@@ -20,7 +22,46 @@ const Register = () => {
 
     setError('');
     alert(`Registered as ${formValues.name} (${formValues.role})`);
-    setFormValues({ role: '', name: '', dob: '', mobile: '', password: '' });
+    
+    //Send data to the backend:
+    try {
+        const responce = await fetch("http://localhost:8085/user/register", {
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                role:formValues.role,
+                name:formValues.name,
+                dob:formValues.dob,
+                mobile:formValues.mobile,
+                password:formValue.password
+            })
+        });
+
+        const data = await responce.json();
+        if(responce.ok){
+            alert('Registraion successfull');
+
+            setFormValues({
+                role:"",
+                name:"",
+                dob:"",
+                mobile:"",
+                password:""
+            });
+
+            //redirect to the login page after a short delay.
+            setTimeout(()=>{
+                Navigate("/login");
+            },1500);
+        }
+        
+        
+    } catch (error) {
+        console.log(`registration error:${error.message}`);
+        alert("registration failed.");
+    }
   };
 
   return (

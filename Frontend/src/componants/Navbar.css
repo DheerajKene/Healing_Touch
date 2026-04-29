@@ -67,8 +67,8 @@
   margin: 0;
   visibility: hidden;
   opacity: 0;
-  /* transform: translateY(10px);
-  transition: opacity 0.2s ease, transform 0.2s ease; */
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .dropdown:hover .dropdown-menu {
