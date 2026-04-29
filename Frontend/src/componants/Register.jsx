@@ -19,9 +19,8 @@ const Register = () => {
       setError('All fields are required.');
       return;
     }
-
     setError('');
-    alert(`Registered as ${formValues.name} (${formValues.role})`);
+    setLoading(true);
     
     //Send data to the backend:
     try {
@@ -56,12 +55,15 @@ const Register = () => {
                 Navigate("/login");
             },1500);
         }
-        
+        alert(`Registered as ${formValues.name} (${formValues.role})`);
         
     } catch (error) {
         console.log(`registration error:${error.message}`);
         alert("registration failed.");
+    }finally{
+        setLoading(false)
     }
+    
   };
 
   return (
@@ -129,8 +131,8 @@ const Register = () => {
 
           {error && <div className="register-error">{error}</div>}
 
-          <button type="submit" className="register-submit">
-            Register
+          <button type="submit" className="register-submit" disabled={loading}>
+            {loading ? "Registering...": "Register"}
           </button>
         </form>
 
