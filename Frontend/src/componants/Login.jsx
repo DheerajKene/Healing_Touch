@@ -70,6 +70,10 @@ const Login = () => {
           <button type="submit" className="login-submit">
             Login
           </button>
+
+          <div className="login-register-link">
+            Don't have an account? <a href="/register">Register</a>
+          </div>
         </form>
 
         <div className="login-card__footer">

@@ -65,10 +65,23 @@
   z-index: 1001;
   padding: 0;
   margin: 0;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
+
+.dropdown:hover .dropdown-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .dropdown-menu li {
   margin: 0;
+  font-family: Candara;
+  line-height: 0.9rem;
 }
 
 .dropdown-menu li a {
@@ -80,7 +93,7 @@
 
 .dropdown-menu li a:hover {
   background-color: #f8f9fa;
-  color: #28a745; /* Secondary green */
+  color: #9ddc8f; /* Secondary green */
 }
 
 .navbar-phone a {
