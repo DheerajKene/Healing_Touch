@@ -88,7 +88,7 @@ const Register = () => {
           </label>
 
           <label>
-            
+            Name
             <input
               type="text"
               name="name"
