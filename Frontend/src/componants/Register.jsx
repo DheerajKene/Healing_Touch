@@ -6,6 +6,7 @@ const Register = () => {
   const [formValues, setFormValues] = useState({ role: '', name: '', dob: '', mobile: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -87,7 +88,7 @@ const Register = () => {
           </label>
 
           <label>
-            Name
+            
             <input
               type="text"
               name="name"
