@@ -35,7 +35,7 @@ const Register = () => {
                 name:formValues.name,
                 dob:formValues.dob,
                 mobile:formValues.mobile,
-                password:formValue.password
+                password:formValues.password
             })
         });
 
@@ -53,14 +53,16 @@ const Register = () => {
 
             //redirect to the login page after a short delay.
             setTimeout(()=>{
-                Navigate("/login");
+                navigate("/login");
             },1500);
+        } else {
+            // Handle error responses
+            setError(data.message || 'Registration failed');
         }
-        alert(`Registered as ${formValues.name} (${formValues.role})`);
         
     } catch (error) {
         console.log(`registration error:${error.message}`);
-        alert("registration failed.");
+        setError('Network error. Please try again.');
     }finally{
         setLoading(false)
     }
