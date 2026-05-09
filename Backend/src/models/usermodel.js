@@ -1,26 +1,27 @@
 const mongoose = require('mongoose');
 const userSchema = mongoose.Schema({
+    role:{
+        type:String,
+        required:true,
+        enum:['Admin', 'caregiver','user']
+    },
     name:{
         type:String,
         required:true
     },
-    DOB:{
+    dob:{
         type:String,
         required:true
     },
-    mobile_no:{
+    mobile:{
         type:String,
         required:true
     },
     password:{
         type:String,
         required:true
-    },
-    role:{
-        type:String,
-        required:true,
-        enum:['Doctor', 'paitent']
     }
+    
 },{
     version_key:false
 });
