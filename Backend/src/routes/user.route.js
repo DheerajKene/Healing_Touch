@@ -3,6 +3,7 @@ const userRouter = express.Router();
 const UserModel = require('../models/usermodel');
 const bcrypt  = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const auth = require('../middleware/auth.middleware');
 require('dotenv').config();
 const saltrounds = 5;
 
@@ -62,7 +63,7 @@ userRouter.post('/login', async (req, res)=>{
     }
 
     try {
-        const user = await UserModel.findOne({name});
+        const user = await UserModel.findOne({ name, role });
         if(!user){
             return res.status(401).json({
                 message:`Invalid credentials`
@@ -72,7 +73,7 @@ userRouter.post('/login', async (req, res)=>{
         //checking password is valid or not.
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if(isPasswordValid){
-            const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
+            const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY || process.env.SECRETE_KEY);
             return res.status(200).json({
                 message:`User Login successfully`,
                 token
@@ -91,26 +92,23 @@ userRouter.post('/login', async (req, res)=>{
 
 //for profile to show user name on top
 
-userRouter.get('/profile', async (req, res)=>{
-    
+userRouter.get('/profile', auth, async (req, res)=>{
     try {
-        const user = await UserModel.findById(req.userId);
-
+        const user = req.user;
         if(!user){
-            res.status(500).json(
-            {message:`user not found`}
-        );
+            return res.status(404).json({ message: 'User not found' });
         }
-        res.status(200).json({
-            Name:user.name,
-            mobile_no:user.mobile_no
-        })
+        return res.status(200).json({
+            Name: user.name,
+            mobile: user.mobile,
+            role: user.role,
+            dob: user.dob
+        });
     } catch (error) {
-        res.status(500).json({
-            message:`error found while fetching user:${error.message}`
+        return res.status(500).json({
+            message:`error found while fetching user: ${error.message}`
         });
     }
-
 });
 
 module.exports = userRouter;
