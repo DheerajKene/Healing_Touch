@@ -3,7 +3,7 @@ const cors = require ("cors");
 require('dotenv').config();
 const connection = require("./src/config/db");
 const userRouter = require('./src/routes/user.route');
-const ServiceRouter = require('./src/routes/service.route');
+// const ServiceRouter = require('./src/routes/service.route');
 
 
 const App =express();
@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8085;
 App.use(cors());
 App.use(express.json());
 App.use('/user',userRouter);
-App.use('/service', ServiceRouter);
+// App.use('/service', ServiceRouter);
 
 App.get("/", (req, res)=>{
     res.send("welcome to the home page");
