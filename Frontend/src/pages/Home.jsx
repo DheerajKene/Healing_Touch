@@ -5,6 +5,7 @@ import './Home.css';
 import StepInfo from '../componants/StepInfo';
 import doc from '../photos/doc.avif';
 import FAQ from '../componants/FAQ';
+import { FaInstagram, FaFacebook } from "react-icons/fa";
 
 const Home = () => {
 
@@ -24,10 +25,34 @@ const Home = () => {
     <div className="home">
       <Navbar />
       <div className="home-content">
-        <div className="tagline-section">
-          <h1 className="tagline">Caring for Your Loved Ones with Compassion and Expertise</h1>
-          <p className="subtitle">Improving accessibility, safety, and continuity of elderly care.</p>
-        </div>
+        <section className="hero-section">
+          <div className="hero-copy">
+            <span className="hero-badge">Healing Touch</span>
+            <h1 className="hero-title">Compassionate home care made personal.</h1>
+            <p className="hero-description">
+              Healing Touch brings expert caregivers, medical support, and family-first service together
+              in one trusted platform for elderly care and recovery at home.
+            </p>
+            <div className="hero-actions">
+              <a className="hero-btn" href="#request-callback">Request Callback</a>
+            </div>
+            <div className="hero-socials">
+              <a href="tel:7507562079" aria-label="Call us">📞 +91 75075 62079</a>
+              <a href="mailto:info@healingtouch.com" aria-label="Email us">✉️ info@healingtouch.com</a>
+              <a href="https://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"><FaFacebook /></a>
+              <a href="https://www.instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a>
+            </div>
+          </div>
+          <div className="hero-visual">
+            <div className="hero-card">
+              <img src={doc} alt="Doctor providing care" />
+              <div className="hero-card-meta">
+                <p>Trusted care partner</p>
+                <strong>Dr. Priya Sharma</strong>
+              </div>
+            </div>
+          </div>
+        </section>
         <div className="doctors-section">
           <h2>Our Dedicated Doctors</h2>
           <div className="doctors-slider">
