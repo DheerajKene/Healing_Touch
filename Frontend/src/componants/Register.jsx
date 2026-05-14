@@ -25,7 +25,7 @@ const Register = () => {
     
     //Send data to the backend:
     try {
-        const responce = await fetch("http://localhost:8085/user/register", {
+        const responce = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8085'}/user/register`, {
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -41,7 +41,7 @@ const Register = () => {
 
         const data = await responce.json();
         if(responce.ok){
-            alert('Registraion successfull');
+            alert('Registration successful');
 
             setFormValues({
                 role:"",
