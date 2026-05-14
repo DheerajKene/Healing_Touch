@@ -18,8 +18,8 @@ userRouter.post('/register', async (req, res)=>{
     }
     try {
         //checking if user already exist or not
-        const exstingUser = await UserModel.findOne({name, mobile});
-        if(exstingUser){
+        const existingUser = await UserModel.findOne({name, mobile});
+        if(existingUser){
             return res.status(401).json({
                 message:`User already registered...`
             });
@@ -28,7 +28,7 @@ userRouter.post('/register', async (req, res)=>{
         //hashing the password
         const hashedPassword = await bcrypt.hash(password, saltrounds);
 
-        //cerating new user
+        //creating new user
         const user = new UserModel({
             name,
             dob,
