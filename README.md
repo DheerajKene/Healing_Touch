@@ -2,6 +2,10 @@
 
 Healing Touch is an elderly nursing and healthcare portal designed to connect families with verified healthcare professionals, including nurses, caregivers, physiotherapists, attendants, and home medical support providers. The platform emphasizes compassionate, reliable in-home care, accessibility, and continuity for senior citizens.
 
+### Project deployed link:
+ - frontend: https://healing-touch-pearl.vercel.app/
+ - backend: https://healing-touch-1.onrender.com
+
 ## Project Features
 
 ### Frontend Features
