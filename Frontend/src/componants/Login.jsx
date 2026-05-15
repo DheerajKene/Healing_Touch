@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
   const [formValues, setFormValues] = useState({ role: '', name: '', password: '' });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formValues.role || !formValues.name || !formValues.password) {
@@ -19,8 +22,35 @@ const Login = () => {
     }
 
     setError('');
-    alert(`Logged in as ${formValues.name} (${formValues.role})`);
-    setFormValues({ role: '', name: '', password: '' });
+    setLoading(true);
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'https://healing-touch-1.onrender.com'}/user/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          role: formValues.role,
+          name: formValues.name,
+          password: formValues.password
+        })
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert('Login successful');
+        // Store token if needed
+        localStorage.setItem('token', data.token);
+        navigate('/');
+      } else {
+        setError(data.message || 'Login failed');
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -67,12 +97,12 @@ const Login = () => {
 
           {error && <div className="login-error">{error}</div>}
 
-          <button type="submit" className="login-submit">
-            Login
+          <button type="submit" className="login-submit" disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
           </button>
 
           <div className="login-register-link">
-            Don't have an account? <a href="/register">Register</a>
+            Don't have an account? <Link to="/register">Register</Link>
           </div>
         </form>
 
